@@ -14,6 +14,10 @@ const FAKE_STUDENTS = [
   { name: "Dewi", level: 1, score: 90, done: "3/12" },
 ];
 
+// kredensial disamarkan (base64) agar tidak terbaca langsung di layar/kode
+const GURU_U = atob("QWJ1IEhhbmlm");
+const GURU_P = atob("SW5vdmF0aWY=");
+
 export default function Teacher() {
   const { back } = useRouter();
   const store = useStore();
@@ -24,8 +28,8 @@ export default function Teacher() {
   const [tab, setTab] = useState<"dash" | "levels" | "settings" | "bank">("dash");
 
   const login = () => {
-    if (u.trim() === "Abu Hanif" && p === "Inovatif") { setLogged(true); sfx.win(); setErr(""); }
-    else { setErr("Username atau password salah. Coba: Abu Hanif / Inovatif"); sfx.wrong(); }
+    if (u.trim() === GURU_U && p === GURU_P) { setLogged(true); sfx.win(); setErr(""); }
+    else { setErr("Username atau password salah. Coba lagi."); sfx.wrong(); }
   };
 
   if (!logged) {
@@ -36,16 +40,16 @@ export default function Teacher() {
           <h1 className="text-2xl font-extrabold text-slate-800">🎓 Mode Guru</h1>
         </div>
         <Card className="p-6">
-          <p className="text-sm font-semibold text-slate-500 mb-4 text-center">Login Demo untuk mengakses dashboard guru.</p>
+          <p className="text-sm font-semibold text-slate-500 mb-4 text-center">Login khusus guru untuk mengakses dashboard.</p>
           <label className="text-sm font-bold text-slate-600">Username</label>
-          <input value={u} onChange={(e) => setU(e.target.value)} placeholder="Abu Hanif"
+          <input value={u} onChange={(e) => setU(e.target.value)} placeholder="Masukkan username"
             className="mt-1 mb-3 w-full rounded-xl border-2 border-slate-200 px-4 py-2.5 font-semibold focus:border-sky-400 focus:outline-none" />
           <label className="text-sm font-bold text-slate-600">Password</label>
-          <input type="password" value={p} onChange={(e) => setP(e.target.value)} onKeyDown={(e) => e.key === "Enter" && login()} placeholder="Inovatif"
+          <input type="password" value={p} onChange={(e) => setP(e.target.value)} onKeyDown={(e) => e.key === "Enter" && login()} placeholder="Masukkan password"
             className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-2.5 font-semibold focus:border-sky-400 focus:outline-none" />
           {err && <p className="mt-2 text-sm font-bold text-red-500">{err}</p>}
           <Button variant="secondary" className="mt-4 w-full" onClick={login}>Login</Button>
-          <p className="mt-3 text-center text-xs font-semibold text-slate-400">(Demo Mode) · Abu Hanif / Inovatif</p>
+          <p className="mt-3 text-center text-xs font-semibold text-slate-400">Akses khusus guru · Hubungi pengembang untuk mendapatkan akun</p>
         </Card>
       </div>
     );
@@ -63,7 +67,7 @@ export default function Teacher() {
       <div className="flex items-center gap-3 flex-wrap">
         <Button variant="ghost" size="sm" onClick={() => { sfx.click(); back(); }}>← Kembali</Button>
         <h1 className="text-2xl font-extrabold text-slate-800">🎓 Dashboard Guru</h1>
-        <span className="ml-auto rounded-full bg-emerald-100 px-3 py-1 text-sm font-bold text-emerald-600">Abu Hanif ✓</span>
+        <span className="ml-auto rounded-full bg-emerald-100 px-3 py-1 text-sm font-bold text-emerald-600">Guru ✓</span>
       </div>
 
       <div className="flex gap-2 overflow-x-auto pb-1">
