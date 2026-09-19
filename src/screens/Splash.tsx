@@ -28,7 +28,7 @@ export default function Splash() {
 
       <div className="relative z-10 w-full max-w-md text-center animate-pop">
         <img
-          src="/images/logo-pizza.png"
+          src={`${import.meta.env.BASE_URL}images/logo-pizza.png`}
           alt="Maskot Pizza Petualangan Pecahan"
           className="mx-auto w-52 h-52 object-contain drop-shadow-2xl animate-float"
         />
