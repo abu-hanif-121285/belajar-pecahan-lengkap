@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --cheese: #ffd54a;
+  --tomato: #e8492b;
+  --orange: #ff9b3d;
+  --leaf: #57b846;
+  --cream: #fff7e6;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Baloo 2", "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #eaf6ff;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Friendly rounded font stack fallback */
+* {
+  font-family: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #ffcf5c; border-radius: 999px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---- Animations ---- */
+@keyframes pop-in {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.animate-pop { animation: pop-in 0.4s cubic-bezier(.34,1.56,.64,1) both; }
+
+@keyframes float-y {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float-y 3s ease-in-out infinite; }
+
+@keyframes wiggle {
+  0%,100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.animate-wiggle { animation: wiggle 2.5s ease-in-out infinite; }
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+.animate-shake { animation: shake 0.4s ease-in-out; }
+
+@keyframes bounce-in {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0;}
+  60% { transform: scale(1.2) rotate(6deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1;}
+}
+.animate-bounce-in { animation: bounce-in 0.5s cubic-bezier(.34,1.56,.64,1) both; }
+
+@keyframes slide-up {
+  0% { transform: translateY(24px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-up { animation: slide-up 0.4s ease-out both; }
+
+@keyframes star-burst {
+  0% { transform: scale(0) rotate(0); opacity: 1; }
+  100% { transform: scale(1.6) rotate(180deg); opacity: 0; }
+}
+
+/* juicy button press */
+.btn-juicy { transition: transform .12s cubic-bezier(.34,1.56,.64,1), box-shadow .12s, filter .12s; }
+.btn-juicy:active { transform: translateY(3px) scale(0.97); }
+
+.no-select { user-select: none; -webkit-user-select: none; }
