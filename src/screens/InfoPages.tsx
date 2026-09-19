@@ -138,7 +138,7 @@ export function About() {
   return (
     <div className="animate-slide-up"><Header title="ℹ️ Tentang Aplikasi" />
       <Card className="p-6 text-center">
-        <img src="/images/logo-pizza.png" alt="Logo" className="mx-auto w-32 animate-float" />
+        <img src={`${import.meta.env.BASE_URL}images/logo-pizza.png`} alt="Logo" className="mx-auto w-32 animate-float" />
         <h2 className="mt-2 text-2xl font-extrabold text-red-500">PETUALANGAN PECAHAN</h2>
         <p className="font-bold text-amber-500">Jelajahi Dunia Pecahan Bersama Pizza! 🍕</p>
         <p className="mt-4 max-w-md mx-auto font-semibold text-slate-600">
