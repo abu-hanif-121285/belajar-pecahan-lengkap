@@ -28,6 +28,8 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const lv = levelXp();
 
+  const BASE = import.meta.env.BASE_URL;
+
   const isActive = (r: Route) => r.name === route.name;
 
   const NavItem = ({ item, small }: { item: (typeof NAV)[0]; small?: boolean }) => (
@@ -50,7 +52,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div className="flex h-full flex-col gap-1 p-4">
       <button onClick={() => { sfx.click(); go({ name: "home" }); setOpen(false); }}
         className="mb-3 flex items-center gap-2 rounded-2xl p-1">
-        <img src="/images/logo-pizza.png" alt="Logo" className="h-11 w-11 object-contain" />
+        <img src={`${BASE}images/logo-pizza.png`} alt="Logo" className="h-11 w-11 object-contain" />
         <div className="text-left leading-tight">
           <div className="font-extrabold text-red-500 text-sm">PETUALANGAN</div>
           <div className="font-extrabold text-amber-500 text-lg -mt-1">PECAHAN</div>
@@ -71,7 +73,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           <button onClick={() => setOpen(true)} className="lg:hidden rounded-xl p-2 hover:bg-orange-50 btn-juicy" aria-label="Buka menu">
             <span className="text-2xl">☰</span>
           </button>
-          <img src="/images/logo-pizza.png" alt="" className="h-9 w-9 object-contain lg:hidden" />
+          <img src={`${BASE}images/logo-pizza.png`} alt="" className="h-9 w-9 object-contain lg:hidden" />
           <span className="font-extrabold text-red-500 lg:hidden">Pecahan</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
