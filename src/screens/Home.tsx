@@ -63,7 +63,7 @@ export default function Home() {
           </div>
 
           <div className="hidden md:flex flex-col items-center justify-end">
-            <img src="/images/chef-boy.png" alt="Chef" className="w-44 object-contain animate-float" />
+            <img src={`${import.meta.env.BASE_URL}images/chef-boy.png`} alt="Chef" className="w-44 object-contain animate-float" />
           </div>
         </div>
       </Card>
